@@ -1,12 +1,6 @@
 # A imagem base da jupyter-vidalink
 FROM jupyter/scipy-notebook
 
-# Iniciamos a instalaçãoda das bibliotecas python
-RUN conda install --quiet --yes \
-    'mlflow=1.0.0' \
-    'psycopg2' \
-    'cx_Oracle'
-
 RUN pip install --upgrade pip
 COPY requirements.txt /home/jovyan/
 RUN pip install -r requirements.txt
