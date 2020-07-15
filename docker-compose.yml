@@ -1,0 +1,24 @@
+# Usamos a versao 3.6 devido a compatibilidade da funcionalidade de deploy na maquina de produção
+version: '3.6'
+
+services:
+
+  notebook:
+    build:
+      context: ./jupyter
+    ports:
+      - "8888:8888"
+    volumes:
+#      - ./jupyter/notebooks:/home/jovyan/work
+      # gambi para acessar as imagens das receitas MARS
+      - /mnt:/home/jovyan/work/mnt
+    env_file:
+      - ./.env
+    command: "start-notebook.sh \
+      --NotebookApp.password=${ACCESS_PSWD} \
+      --NotebookApp.token=${ACCESS_TOKEN}"
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: '2G'
