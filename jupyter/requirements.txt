@@ -6,7 +6,7 @@ cffi==1.13.2
 chardet==3.0.4
 click==7.1.2
 cloudpickle==1.5.0
-cryptography==2.8
+cryptography==3.2
 cx-Oracle==8.0.0
 cycler==0.10.0
 databricks-cli==0.11.0
